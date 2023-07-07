@@ -1,25 +1,31 @@
-# README
+# Pizza API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Rails API backend for managing restaurants and pizzas. It provides CRUD operations for restaurants, pizzas, and restaurant-pizza associations.
 
-Things you may want to cover:
+## API Endpoints
 
-* Ruby version
+The API provides the following endpoints:
 
-* System dependencies
+- GET /restaurants: Retrieve all restaurants.
+- GET /restaurants/:id: Retrieve a specific restaurant by ID.
+- DELETE /restaurants/:id: Delete a restaurant by ID.
+- GET /pizzas: Retrieve all pizzas.
+- POST /restaurant_pizzas: Create a new restaurant-pizza association.
 
-* Configuration
+## Models
 
-* Database creation
+The API includes the following models:
 
-* Database initialization
+- Restaurant: Represents a restaurant with attributes such as name and address.
+- Pizza: Represents a pizza with attributes such as name and ingredients.
+- RestaurantPizza: Represents the association between a restaurant and a pizza, including the price.
 
-* How to run the test suite
+The models have the following relationships:
 
-* Services (job queues, cache servers, search engines, etc.)
+- A Restaurant has many Pizzas through RestaurantPizza.
+- A Pizza has many Restaurants through RestaurantPizza.
+- A RestaurantPizza belongs to a Restaurant and belongs to a Pizza.
 
-* Deployment instructions
+## Validations
 
-* ...
-# pizzas-restaurants
+The RestaurantPizza model has a validation for the price attribute, which must be between 1 and 30.
